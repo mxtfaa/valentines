@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Will You Be My Valentine?</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      animation: popIn 1s ease;
+    }
+
+    .emoji {
+      font-size: 64px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 25px;
+      color: #222;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform .2s ease;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: #fff;
+    }
+
+    .yes:hover {
+      transform: scale(1.1);
+    }
+
+    .no {
+      background: #eee;
+      color: #333;
+    }
+
+    .hint {
+      font-size: .8rem;
+      color: #777;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* YES SCREEN */
+    .yes-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      background: linear-gradient(135deg, #ff4d6d, #ff85a1);
+      color: white;
+      text-align: center;
+      animation: fadeIn 1s ease;
+      padding: 20px;
+    }
+
+    .yes-screen img {
+      width: 260px;
+      max-width: 80%;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div class="emoji">🐱💖</div>
+    <h1>Sidra Basir, will you be my Valentine?</h1>
+
+    <div class="buttons">
+      <button class="yes" onclick="yesClicked()">Yes</button>
+      <button class="no" onmouseover="moveNo()">No</button>
+    </div>
+
+    <div class="hint">"No" seems a bit shy 😼</div>
+  </div>
+
+  <script>
+    function moveNo() {
+      const btn = document.querySelector('.no');
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 100 - 50;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div class="yes-screen">
+          <!-- REPLACE THIS LINK WITH YOUR PHOTO -->
+          <img src="https://photos.app.goo.gl/1B5SfhtZR2GogZDbA="Us together">
+          <h1>
+            Yayyy 💕<br>
+            you made me the happiest boyfie ever 🥹<br>
+            my eepy babyy 💤💖
+          </h1>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
